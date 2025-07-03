@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Our Anniversary</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(135deg, #ffe4e1, #fff0f5);
+      overflow-x: hidden;
+      color: #333;
+      position: relative;
+      min-height: 100vh;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 3rem auto 5rem;
+      padding: 0 1rem;
+      min-height: 60vh;
+      position: relative;
+      z-index: 2;
+    }
+
+    .page {
+      display: none;
+      background: white;
+      padding: 2.5rem 3rem;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      animation: fadeIn 0.5s ease forwards;
+      color: #333;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    .page1 h1,
+    .page3 h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3rem;
+      color: #c71585;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .letter-content,
+    .thankyou-message {
+      font-size: 1.3rem;
+      line-height: 2rem;
+      text-align: center;
+      color: #555;
+      white-space: pre-line;
+    }
+
+    .page2 h2 {
+      text-align: center;
+      font-family: 'Great Vibes', cursive;
+      color: #c71585;
+      margin-bottom: 2rem;
+      font-size: 2.8rem;
+    }
+
+    .memories-container {
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .memory-item {
+      max-width: 700px;
+      text-align: center;
+    }
+
+    .memory-item img {
+      width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      object-fit: cover;
+      max-height: 400px;
+    }
+
+    .memory-text {
+      margin-top: 0.8rem;
+      font-size: 1.1rem;
+      color: #666;
+      font-style: italic;
+    }
+
+    /* Navigation Buttons */
+    .next-btn, .prev-btn {
+      position: fixed;
+      bottom: 30px;
+      background: #c71585;
+      color: white;
+      padding: 0.8rem 1.8rem;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(199,21,133,0.5);
+      transition: background 0.3s ease;
+      z-index: 100;
+    }
+
+    .next-btn:hover, .prev-btn:hover {
+      background: #a30f6b;
+    }
+
+    .next-btn { right: 30px; }
+    .prev-btn { left: 30px; }
+
+    /* Floating hearts */
+    .floating-hearts {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .heart {
+      position: absolute;
+      width: 20px; height: 20px;
+      background: #c71585;
+      opacity: 0.7;
+      transform: rotate(45deg);
+      animation: float 5s linear infinite;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 20px; height: 20px;
+      background: #c71585;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px; left: 0;
+    }
+
+    .heart::after {
+      left: -10px; top: 0;
+    }
+
+    @keyframes float {
+      0% {
+        bottom: 0;
+        opacity: 1;
+      }
+      100% {
+        bottom: 100vh;
+        opacity: 0;
+      }
+    }
+    @media (max-width: 600px) {
+  main {
+    padding: 0 1rem;
+    margin: 2rem auto 6rem;
+  }
+
+  .letter-content,
+  .thankyou-message {
+    font-size: 1.1rem;
+    line-height: 1.8rem;
+  }
+
+  .memory-text {
+    font-size: 1rem;
+    padding: 0 0.5rem;
+  }
+
+  .prev-btn, .next-btn {
+    padding: 0.7rem 1.2rem;
+    font-size: 1rem;
+    bottom: 20px;
+  }
+
+  .next-btn {
+    right: 20px;
+  }
+
+  .prev-btn {
+    left: 20px;
+  }
+}
+  </style>
+</head>
+
+<body>
+  <audio id="bgMusic" autoplay loop>
+    <source src="assets/music.mp3" type="audio/mpeg" />
+    Your browser does not support the audio element.
+  </audio>
+
+  <div class="floating-hearts"></div>
+
+  <main>
+    <section id="page1" class="page page1 active">
+      <h1>Happy Anniversary My Dearest Husband</h1>
+      <div class="letter-content">
+      You're my hero,my biggest dream and my greatest hope in life. 
+      You are always the one for me and always will be.
+      My life feels like a piece of heaven because of your love and care.
+      Love you so much dear! May Allah bless you and give you hayate tayeeba.
+      </div>
+    </section>
+
+    <section id="page2" class="page page2">
+      <h2>The Things I Always Wanted To Say To You</h2>
+      <div class="memories-container">
+        <div class="memory-item">
+          <img src="assets/photo1.jpg" alt="Memory 1" />
+          <p class="memory-text">"Through calm seas and wild storms, I’d sail this life with you again and again. Happy Anniversary to my forever soulmate.</p>
+        </div>
+        <div class="memory-item">
+          <img src="assets/photo2.jpg" alt="Memory 2" />
+          <p class="memory-text">Our love is like the mountains—strong, grounded, and rising higher each year. Thank you for being my steady rock. Happy Anniversary!"</p>
+        </div>
+        <div class="memory-item">
+          <img src="assets/photo3.jpg" alt="Memory 3" />
+          <p class="memory-text">"Through every uphill journey and every breathtaking view, I’d choose this path with you again and again. Happy Anniversary to my forever  partner!"</p>
+        </div>
+        <div class="memory-item">
+          <img src="assets/photo4.jpg" alt="Memory 4" />
+          <p class="memory-text">"Our love feels like sunset skies—gentle, magical, and endlessly beautiful. Thank you for painting my days with love. Happy Anniversary!</p>
+        </div>
+        <div class="memory-item">
+          <img src="assets/photo5.jpg" alt="Memory 5" />
+          <p class="memory-text">"You + Me = Forever. Happy Anniversary to my favorite person in the whole wide world!"</p>
+        </div>
+        <div class="memory-item">
+          <img src="assets/photo6.jpg" alt="Memory 6" />
+          <p class="memory-text">"We started as two, now we’re three. You are the amazing father of our little miracle. 
+          you’re our baby’s first hero, and my forever safe place.
+          You are the man who made me a wife, and now, a mommy. Our baby is lucky. And so am I. ❤</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="page3" class="page page3">
+      <h1>With You, Forever 💞</h1>
+      <p class="thankyou-message">
+        Lastly... I just want you to know —
+        with you, forever doesn’t feel like enough.
+        You are my home, my peace, my everything.
+        I love you endlessly.
+      </p>
+    </section>
+  </main>
+<button class="prev-btn"><span style="font-family: 'Great Vibes', cursive;">❤️‍🔥⟵</span> Previous</button>
+<button class="next-btn">Next <span style="font-family: 'Great Vibes', cursive;">⟶❤️‍🔥</span></button>
+
+<script>
+  const pages = Array.from(document.querySelectorAll(".page"));
+  const nextBtn = document.querySelector(".next-btn");
+  const prevBtn = document.querySelector(".prev-btn");
+  let currentPageIndex = 0;
+
+  function showPage(index) {
+    pages.forEach((page, i) => {
+      page.classList.toggle("active", i === index);
+    });
+    currentPageIndex = index;
+
+    // Show/hide prev button
+    prevBtn.style.display = index === 0 ? "none" : "inline-block";
+
+    // On last page, change Next to "Back to Beginning"
+    if (index === pages.length - 1) {
+      nextBtn.innerText = "Back to Beginning❤️‍🔥";
+    } else {
+      nextBtn.innerText = "Next⟶❤️‍🔥";
+    }
+  }
+
+  nextBtn.addEventListener("click", () => {
+    if (currentPageIndex === pages.length - 1) {
+      // Go back to first page
+      showPage(0);
+    } else {
+      showPage(currentPageIndex + 1);
+    }
+  });
+
+  prevBtn.addEventListener("click", () => {
+    showPage(currentPageIndex - 1);
+  });
+
+  // Initial setup
+  showPage(currentPageIndex);
+
+  // Ensure background audio plays on click
+  document.body.addEventListener("click", () => {
+    const music = document.getElementById("bgMusic");
+    music.play().catch(() => {});
+  }, { once: true });
+
+  // Floating hearts generator
+  function createHeart() {
+    const heart = document.createElement('div');
+    heart.className = 'heart';
+    heart.style.left = `${Math.random() * 100}vw`;
+    heart.style.animationDuration = `${4 + Math.random() * 3}s`;
+    document.querySelector('.floating-hearts').appendChild(heart);
+    setTimeout(() => heart.remove(), 5000);
+  }
+  setInterval(createHeart, 500);
+</script>
+
+</body>
+</html>
